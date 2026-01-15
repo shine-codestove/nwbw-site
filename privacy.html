@@ -225,88 +225,136 @@
 
         <main class="content">
             <h1>개인정보 처리방침</h1>
-            <p class="last-updated">최종 업데이트: 2025년 1월</p>
+            <p class="last-updated">최종 업데이트: 2026년 1월</p>
 
             <p>NWBW(이하 "앱")는 사용자의 개인정보를 소중히 여기며, 개인정보 보호법 등 관련 법령을 준수합니다. 본 개인정보 처리방침은 앱이 어떤 정보를 수집하고, 어떻게 사용하며, 어떻게 보호하는지 설명합니다.</p>
 
+            <div class="highlight-box">
+                <p><strong>핵심 요약:</strong> NWBW는 계정 생성이나 로그인을 요구하지 않으며, 모든 데이터는 사용자 기기에만 저장됩니다. 외부 서버로 데이터를 전송하거나 제3자와 공유하지 않습니다.</p>
+            </div>
+
             <h2>1. 수집하는 정보</h2>
-            
-            <h3>위치 정보</h3>
+
+            <h3>1.1 위치 정보 (iPhone 및 Apple Watch)</h3>
             <p>앱은 러닝 경로 기록 및 네비게이션 기능을 제공하기 위해 GPS 기반의 위치 정보를 수집합니다.</p>
             <ul>
                 <li>실시간 위치 좌표 (위도, 경도)</li>
-                <li>이동 경로 및 거리</li>
-                <li>고도 정보</li>
+                <li>이동 경로 및 누적 거리</li>
+                <li>고도 및 누적 상승 고도</li>
+                <li>이동 방향 및 속도</li>
             </ul>
 
-            <h3>건강 및 운동 데이터</h3>
+            <h3>1.2 건강 및 운동 데이터 (Apple HealthKit)</h3>
             <p>앱은 Apple HealthKit과 연동하여 다음 데이터를 읽고 쓸 수 있습니다.</p>
             <ul>
-                <li>운동 기록 (러닝 거리, 시간, 칼로리)</li>
-                <li>심박수 (HealthKit 연동 시)</li>
-                <li>걸음 수</li>
+                <li>운동 기록 (러닝 유형, 거리, 시간, 소모 칼로리)</li>
+                <li>심박수 (Apple Watch 사용 시)</li>
+                <li>운동 경로 (HKWorkoutRoute)</li>
+                <li>러닝 속도 및 페이스</li>
+            </ul>
+
+            <h3>1.3 GPX 파일 데이터</h3>
+            <p>사용자가 가져온 GPX 파일의 다음 정보를 처리합니다.</p>
+            <ul>
+                <li>코스 이름 및 경로 좌표</li>
+                <li>웨이포인트 정보</li>
+                <li>고도 데이터</li>
+            </ul>
+
+            <h3>1.4 기기 간 동기화 데이터</h3>
+            <p>iPhone과 Apple Watch 간 기능 제공을 위해 다음 데이터가 기기 간에 전송됩니다.</p>
+            <ul>
+                <li>GPX 코스 데이터 (iPhone → Watch)</li>
+                <li>러닝 기록 (Watch → iPhone)</li>
+                <li>Companion Mode 사용 시: 실시간 위치 및 네비게이션 정보 (iPhone → Watch)</li>
+            </ul>
+
+            <h2>2. 정보의 저장 및 처리</h2>
+
+            <p>수집된 모든 데이터는 <strong>사용자의 기기에만 로컬로 저장</strong>됩니다.</p>
+            <ul>
+                <li>iPhone 앱 데이터: iPhone 로컬 저장소</li>
+                <li>Watch 앱 데이터: Apple Watch 로컬 저장소</li>
+                <li>HealthKit 데이터: Apple의 암호화된 건강 데이터 저장소</li>
             </ul>
 
             <div class="highlight-box">
-                <p><strong>중요:</strong> 앱은 계정 생성이나 로그인을 요구하지 않으며, 이름, 이메일, 전화번호 등의 개인 식별 정보를 수집하지 않습니다.</p>
+                <p><strong>서버 전송 없음:</strong> NWBW는 자체 서버를 운영하지 않으며, 어떠한 데이터도 외부 서버로 전송하지 않습니다. 기기 간 동기화는 Apple의 WatchConnectivity 프레임워크를 통해 직접 연결로만 이루어집니다.</p>
             </div>
 
-            <h2>2. 정보의 저장 및 처리</h2>
-            
-            <p>수집된 모든 데이터는 <strong>사용자의 기기에만 로컬로 저장</strong>됩니다.</p>
-            <ul>
-                <li>외부 서버로 데이터를 전송하지 않습니다.</li>
-                <li>제3자와 데이터를 공유하지 않습니다.</li>
-                <li>HealthKit 데이터는 Apple의 보안 프레임워크에 의해 보호됩니다.</li>
-            </ul>
-
             <h2>3. 정보 수집 목적</h2>
-            
+
             <p>수집된 정보는 다음 목적으로만 사용됩니다.</p>
             <ul>
-                <li>러닝 경로 기록 및 표시</li>
-                <li>네비게이션 안내 제공</li>
-                <li>운동 통계 계산 및 표시</li>
-                <li>HealthKit을 통한 건강 앱 연동</li>
+                <li><strong>네비게이션:</strong> GPX 코스를 따라 실시간 방향 안내 제공</li>
+                <li><strong>경로 이탈 감지:</strong> 설정된 코스에서 벗어났을 때 알림</li>
+                <li><strong>운동 기록:</strong> 러닝 거리, 시간, 페이스, 고도 등 통계 제공</li>
+                <li><strong>건강 데이터 연동:</strong> HealthKit을 통한 Apple 건강 앱 통합</li>
+                <li><strong>기기 간 동기화:</strong> iPhone과 Apple Watch 간 코스 및 기록 공유</li>
             </ul>
 
             <h2>4. 데이터 보관 기간</h2>
-            
-            <p>데이터는 사용자가 직접 삭제하거나 앱을 삭제할 때까지 기기에 보관됩니다. 앱을 삭제하면 모든 데이터가 함께 삭제됩니다.</p>
+
+            <p>데이터는 사용자가 직접 삭제하거나 앱을 삭제할 때까지 기기에 보관됩니다.</p>
+            <ul>
+                <li>앱 삭제 시: 해당 기기의 모든 앱 데이터 삭제</li>
+                <li>HealthKit 데이터: 건강 앱에서 별도 관리 (앱 삭제 후에도 유지됨)</li>
+                <li>러닝 기록: 앱 내에서 개별 삭제 가능</li>
+            </ul>
 
             <h2>5. 사용자 권리</h2>
-            
+
             <p>사용자는 다음과 같은 권리를 가집니다.</p>
             <ul>
-                <li><strong>접근권:</strong> 앱 내에서 저장된 모든 데이터를 확인할 수 있습니다.</li>
-                <li><strong>삭제권:</strong> 앱 내에서 또는 앱 삭제를 통해 모든 데이터를 삭제할 수 있습니다.</li>
-                <li><strong>권한 철회:</strong> 기기 설정에서 위치 정보 및 HealthKit 접근 권한을 언제든지 철회할 수 있습니다.</li>
+                <li><strong>접근권:</strong> 앱 내에서 저장된 모든 러닝 기록과 코스를 확인할 수 있습니다.</li>
+                <li><strong>삭제권:</strong> 앱 내에서 개별 기록을 삭제하거나, 앱 삭제를 통해 모든 데이터를 삭제할 수 있습니다.</li>
+                <li><strong>권한 관리:</strong> 기기 설정에서 위치 정보 및 HealthKit 접근 권한을 언제든지 변경할 수 있습니다.</li>
+                <li><strong>데이터 이동:</strong> 러닝 기록은 HealthKit을 통해 다른 앱과 공유할 수 있습니다.</li>
             </ul>
 
-            <h2>6. 위치 정보 권한</h2>
-            
-            <p>앱은 다음과 같이 위치 권한을 요청합니다.</p>
+            <h2>6. 권한 설명</h2>
+
+            <h3>6.1 위치 정보 권한</h3>
             <ul>
-                <li><strong>앱 사용 중 위치 접근:</strong> 러닝 기록 및 네비게이션에 필요</li>
+                <li><strong>앱 사용 중 위치 접근:</strong> 러닝 중 GPS 위치 추적 및 네비게이션에 필요</li>
                 <li><strong>백그라운드 위치 접근:</strong> 화면이 꺼진 상태에서도 러닝 기록을 계속하기 위해 필요</li>
             </ul>
-            <p>위치 권한은 iOS 설정 > 개인정보 보호 > 위치 서비스에서 언제든지 변경할 수 있습니다.</p>
+            <p>설정 위치: iPhone 설정 > 개인정보 보호 및 보안 > 위치 서비스 > NWBW</p>
 
-            <h2>7. 아동의 개인정보</h2>
-            
-            <p>앱은 만 14세 미만 아동의 개인정보를 의도적으로 수집하지 않습니다.</p>
+            <h3>6.2 HealthKit 권한</h3>
+            <ul>
+                <li><strong>건강 데이터 읽기:</strong> 이전 운동 기록 확인</li>
+                <li><strong>건강 데이터 쓰기:</strong> 러닝 완료 후 운동 기록 및 경로 저장</li>
+            </ul>
+            <p>설정 위치: iPhone 설정 > 건강 > 데이터 접근 및 기기 > NWBW</p>
 
-            <h2>8. 개인정보 처리방침 변경</h2>
-            
-            <p>본 방침이 변경될 경우, 앱 내 공지 또는 본 페이지를 통해 안내드립니다. 변경된 방침은 게시된 날로부터 효력이 발생합니다.</p>
+            <h2>7. 제3자 서비스</h2>
 
-            <h2>9. 문의하기</h2>
-            
+            <p>NWBW는 다음 Apple 프레임워크를 사용합니다. 이들은 모두 Apple의 개인정보 보호 정책을 따릅니다.</p>
+            <ul>
+                <li><strong>HealthKit:</strong> 건강 및 운동 데이터 관리</li>
+                <li><strong>MapKit:</strong> 지도 표시 (Apple Maps)</li>
+                <li><strong>CoreLocation:</strong> GPS 위치 추적</li>
+                <li><strong>WatchConnectivity:</strong> iPhone ↔ Watch 통신</li>
+            </ul>
+            <p>NWBW는 광고 SDK, 분석 도구, 또는 기타 제3자 추적 서비스를 사용하지 않습니다.</p>
+
+            <h2>8. 아동의 개인정보</h2>
+
+            <p>앱은 만 14세 미만 아동의 개인정보를 의도적으로 수집하지 않습니다. 만 14세 미만 사용자는 보호자의 동의 하에 앱을 사용해야 합니다.</p>
+
+            <h2>9. 개인정보 처리방침 변경</h2>
+
+            <p>본 방침이 변경될 경우, 본 페이지를 통해 안내드립니다. 중요한 변경 사항은 앱 업데이트 노트에도 포함됩니다. 변경된 방침은 게시된 날로부터 효력이 발생합니다.</p>
+
+            <h2>10. 문의하기</h2>
+
             <p>개인정보 처리에 관한 문의사항이 있으시면 아래로 연락해 주세요.</p>
-            
+
             <div class="contact-info">
                 <p><strong>NWBW 개인정보 보호 담당</strong></p>
                 <p>이메일: <a href="mailto:info@codestove.io">info@codestove.io</a></p>
+                <p>응답 시간: 영업일 기준 3일 이내</p>
             </div>
         </main>
 
@@ -316,7 +364,7 @@
                 <a href="support.html">지원</a>
                 <a href="mailto:info@codestove.io">문의</a>
             </div>
-            <div class="copyright">© 2025 NWBW. All rights reserved.</div>
+            <div class="copyright">© 2026 NWBW. All rights reserved.</div>
         </footer>
     </div>
 </body>
