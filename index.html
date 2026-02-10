@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NWBW - No Way But Way</title>
+    <link rel="icon" type="image/png" href="assets/NWBW_logo.png">
+    <link rel="apple-touch-icon" href="assets/NWBW_logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
@@ -65,10 +67,20 @@
         }
 
         .logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
             font-size: 1.5rem;
             font-weight: 800;
             letter-spacing: -0.02em;
             color: var(--primary);
+            text-decoration: none;
+        }
+
+        .logo-img {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
         }
 
         .nav-links {
@@ -300,7 +312,7 @@
     <div class="container">
         <header>
             <nav>
-                <div class="logo">NWBW</div>
+                <a href="index.html" class="logo"><img src="assets/NWBW_logo.png" alt="NWBW" class="logo-img">NWBW</a>
                 <div class="nav-links">
                     <a href="privacy.html">개인정보 처리방침</a>
                     <a href="support.html">지원</a>
