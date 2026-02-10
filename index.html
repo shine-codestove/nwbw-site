@@ -364,6 +364,75 @@
             margin-top: 12px;
         }
 
+        /* Apple Watch Ultra Frame */
+        .watch-frame {
+            width: 260px;
+            height: 318px;
+            border-radius: 72px;
+            border: 5px solid #3a3a3c;
+            background: #000;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+            flex-shrink: 0;
+        }
+
+        /* Digital Crown (right side) */
+        .watch-frame::before {
+            content: '';
+            position: absolute;
+            right: -12px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 8px;
+            height: 32px;
+            background: linear-gradient(180deg, #555 0%, #3a3a3c 50%, #555 100%);
+            border-radius: 3px;
+            z-index: 20;
+        }
+
+        /* Action Button (left, orange) */
+        .watch-frame::after {
+            content: '';
+            position: absolute;
+            left: -12px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 8px;
+            height: 24px;
+            background: linear-gradient(180deg, #FF7A3D 0%, #E64A19 100%);
+            border-radius: 3px;
+            z-index: 20;
+        }
+
+        .device-label {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 32px;
+        }
+
+        .device-label span {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 100px;
+            font-weight: 600;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: var(--gray);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .device-label span.active {
+            color: var(--primary);
+            border-color: var(--primary);
+            background: rgba(255, 87, 34, 0.1);
+        }
+
         /* Footer */
         footer {
             padding: 48px 0;
@@ -439,6 +508,12 @@
                 top: 8px;
             }
 
+            .watch-frame {
+                width: 220px;
+                height: 270px;
+                border-radius: 62px;
+            }
+
             .footer-content {
                 flex-direction: column;
                 text-align: center;
@@ -482,31 +557,66 @@
             <section class="screenshots" id="screenshots">
                 <h2>앱 미리보기</h2>
                 <p>NWBW의 주요 화면을 살펴보세요</p>
-                <div class="carousel-wrapper">
-                    <button class="carousel-btn" id="prevBtn" aria-label="이전 스크린샷">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
-                    </button>
-                    <div class="iphone-frame">
-                        <div class="iphone-notch"></div>
-                        <div class="carousel-track" id="carouselTrack">
-                            <div class="carousel-slide"><img src="assets/스크린샷_1.png" alt="NWBW 앱 스플래시 화면" draggable="false"></div>
-                            <div class="carousel-slide"><img src="assets/스크린샷_2.jpg" alt="러닝 코스 목록" draggable="false"></div>
-                            <div class="carousel-slide"><img src="assets/스크린샷_6.jpg" alt="코스 지도 및 고도 프로필" draggable="false"></div>
-                            <div class="carousel-slide"><img src="assets/스크린샷_8.PNG" alt="코스 지도 상세" draggable="false"></div>
-                            <div class="carousel-slide"><img src="assets/스크린샷_7.jpg" alt="라이브 트래킹 화면" draggable="false"></div>
-                            <div class="carousel-slide"><img src="assets/스크린샷_4.png" alt="러닝 기록" draggable="false"></div>
-                            <div class="carousel-slide"><img src="assets/스크린샷_3.jpg" alt="GPX 파일 가져오기" draggable="false"></div>
-                            <div class="carousel-slide"><img src="assets/스크린샷_5.png" alt="설정 화면" draggable="false"></div>
-                            <div class="carousel-slide"><img src="assets/스크린샷_9.PNG" alt="HealthKit 연동" draggable="false"></div>
-                            <div class="carousel-slide"><img src="assets/스크린샷_10.PNG" alt="Strava 연동" draggable="false"></div>
-                        </div>
-                    </div>
-                    <button class="carousel-btn" id="nextBtn" aria-label="다음 스크린샷">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                    </button>
+                <div class="device-label">
+                    <span class="active" data-target="iphone-carousel">iPhone</span>
+                    <span data-target="watch-carousel">Apple Watch</span>
                 </div>
-                <div class="carousel-dots" id="carouselDots"></div>
-                <div class="carousel-counter"><span id="currentSlide">1</span> / <span id="totalSlides">10</span></div>
+
+                <!-- iPhone Carousel -->
+                <div class="carousel" id="iphone-carousel" data-carousel>
+                    <div class="carousel-wrapper">
+                        <button class="carousel-btn" data-prev aria-label="이전 스크린샷">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                        </button>
+                        <div class="iphone-frame">
+                            <div class="iphone-notch"></div>
+                            <div class="carousel-track" data-track>
+                                <div class="carousel-slide"><img src="assets/스크린샷_1.png" alt="NWBW 앱 스플래시 화면" draggable="false"></div>
+                                <div class="carousel-slide"><img src="assets/스크린샷_2.jpg" alt="러닝 코스 목록" draggable="false"></div>
+                                <div class="carousel-slide"><img src="assets/스크린샷_6.jpg" alt="코스 지도 및 고도 프로필" draggable="false"></div>
+                                <div class="carousel-slide"><img src="assets/스크린샷_8.PNG" alt="코스 지도 상세" draggable="false"></div>
+                                <div class="carousel-slide"><img src="assets/스크린샷_7.jpg" alt="라이브 트래킹 화면" draggable="false"></div>
+                                <div class="carousel-slide"><img src="assets/스크린샷_4.png" alt="러닝 기록" draggable="false"></div>
+                                <div class="carousel-slide"><img src="assets/스크린샷_3.jpg" alt="GPX 파일 가져오기" draggable="false"></div>
+                                <div class="carousel-slide"><img src="assets/스크린샷_5.png" alt="설정 화면" draggable="false"></div>
+                                <div class="carousel-slide"><img src="assets/스크린샷_9.PNG" alt="HealthKit 연동" draggable="false"></div>
+                                <div class="carousel-slide"><img src="assets/스크린샷_10.PNG" alt="Strava 연동" draggable="false"></div>
+                            </div>
+                        </div>
+                        <button class="carousel-btn" data-next aria-label="다음 스크린샷">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                        </button>
+                    </div>
+                    <div class="carousel-dots" data-dots></div>
+                    <div class="carousel-counter" data-counter></div>
+                </div>
+
+                <!-- Apple Watch Carousel -->
+                <div class="carousel" id="watch-carousel" data-carousel style="display:none;">
+                    <div class="carousel-wrapper">
+                        <button class="carousel-btn" data-prev aria-label="이전 스크린샷">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                        </button>
+                        <div class="watch-frame">
+                            <div class="carousel-track" data-track>
+                                <div class="carousel-slide"><img src="assets/워치_1.PNG" alt="Watch 메인 화면" draggable="false"></div>
+                                <div class="carousel-slide"><img src="assets/워치_2.PNG" alt="코스 상세 및 러닝 시작" draggable="false"></div>
+                                <div class="carousel-slide"><img src="assets/워치_9.PNG" alt="자유 러닝 시작" draggable="false"></div>
+                                <div class="carousel-slide"><img src="assets/워치_7.PNG" alt="네비게이션 방향 안내" draggable="false"></div>
+                                <div class="carousel-slide"><img src="assets/워치_3.PNG" alt="경로 이탈 경고" draggable="false"></div>
+                                <div class="carousel-slide"><img src="assets/워치_10.PNG" alt="실시간 지도" draggable="false"></div>
+                                <div class="carousel-slide"><img src="assets/워치_5.PNG" alt="고도 프로필" draggable="false"></div>
+                                <div class="carousel-slide"><img src="assets/워치_4.PNG" alt="운동 통계" draggable="false"></div>
+                                <div class="carousel-slide"><img src="assets/워치_8.jpg" alt="경로 이탈 알림" draggable="false"></div>
+                            </div>
+                        </div>
+                        <button class="carousel-btn" data-next aria-label="다음 스크린샷">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                        </button>
+                    </div>
+                    <div class="carousel-dots" data-dots></div>
+                    <div class="carousel-counter" data-counter></div>
+                </div>
             </section>
 
             <section class="features" id="features">
