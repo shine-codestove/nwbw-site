@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NWBW - No Way But Way</title>
+    <link rel="icon" type="image/png" href="../assets/NWBW_logo.png">
+    <link rel="apple-touch-icon" href="../assets/NWBW_logo.png">
+    <link rel="alternate" hreflang="ko" href="https://shine-codestove.github.io/nwbw-site/">
+    <link rel="alternate" hreflang="en" href="https://shine-codestove.github.io/nwbw-site/en/">
+    <link rel="alternate" hreflang="x-default" href="https://shine-codestove.github.io/nwbw-site/">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FF5722;
+            --primary-dark: #E64A19;
+            --dark: #1A1A1A;
+            --darker: #0D0D0D;
+            --light: #FAFAFA;
+            --gray: #888888;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--darker);
+            color: var(--light);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Animated background */
+        .bg-pattern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(255, 87, 34, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 87, 34, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        header {
+            padding: 24px 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .logo-img {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+        }
+
+        .nav-links a {
+            color: var(--gray);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--light);
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 80px 0;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 8px 16px;
+            background: rgba(255, 87, 34, 0.15);
+            border: 1px solid rgba(255, 87, 34, 0.3);
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--primary);
+            margin-bottom: 32px;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 10vw, 6rem);
+            font-weight: 800;
+            line-height: 1;
+            letter-spacing: -0.03em;
+            margin-bottom: 24px;
+            animation: fadeInUp 0.8s ease 0.1s both;
+        }
+
+        .hero h1 span {
+            display: block;
+            background: linear-gradient(135deg, var(--primary) 0%, #FF8A65 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--gray);
+            max-width: 500px;
+            margin-bottom: 48px;
+            line-height: 1.6;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            justify-content: center;
+            animation: fadeInUp 0.8s ease 0.3s both;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 16px 32px;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 40px rgba(255, 87, 34, 0.3);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--light);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
+        }
+
+        /* Features */
+        .features {
+            padding: 80px 0;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 20px;
+            padding: 32px;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            transform: translateY(-4px);
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(255, 87, 34, 0.15);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .feature-card p {
+            color: var(--gray);
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        /* Screenshot Carousel */
+        .screenshots {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .screenshots h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+        }
+
+        .screenshots > p {
+            color: var(--gray);
+            font-size: 1.1rem;
+            margin-bottom: 48px;
+        }
+
+        .carousel-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 24px;
+        }
+
+        .carousel-btn {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--light);
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .carousel-btn:hover {
+            background: rgba(255, 87, 34, 0.2);
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .iphone-frame {
+            width: 280px;
+            height: 606px;
+            border-radius: 44px;
+            border: 4px solid #333;
+            background: #000;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+            flex-shrink: 0;
+        }
+
+        .iphone-notch {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 28px;
+            background: #000;
+            border-radius: 20px;
+            z-index: 10;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            height: 100%;
+            touch-action: pan-y;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            height: 100%;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            user-select: none;
+            -webkit-user-drag: none;
+        }
+
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 32px;
+        }
+
+        .carousel-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            border: none;
+            background: rgba(255, 255, 255, 0.2);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            padding: 0;
+        }
+
+        .carousel-dot.active {
+            background: var(--primary);
+            width: 24px;
+            border-radius: 4px;
+        }
+
+        .carousel-counter {
+            color: var(--gray);
+            font-size: 0.85rem;
+            margin-top: 12px;
+        }
+
+        /* Apple Watch Ultra Frame */
+        .watch-frame {
+            width: 260px;
+            height: 318px;
+            border-radius: 72px;
+            border: 5px solid #3a3a3c;
+            background: #000;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+            flex-shrink: 0;
+        }
+
+        /* Digital Crown (right side) */
+        .watch-frame::before {
+            content: '';
+            position: absolute;
+            right: -12px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 8px;
+            height: 32px;
+            background: linear-gradient(180deg, #555 0%, #3a3a3c 50%, #555 100%);
+            border-radius: 3px;
+            z-index: 20;
+        }
+
+        /* Action Button (left, orange) */
+        .watch-frame::after {
+            content: '';
+            position: absolute;
+            left: -12px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 8px;
+            height: 24px;
+            background: linear-gradient(180deg, #FF7A3D 0%, #E64A19 100%);
+            border-radius: 3px;
+            z-index: 20;
+        }
+
+        .device-label {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 32px;
+        }
+
+        .device-label span {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 100px;
+            font-weight: 600;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: var(--gray);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .device-label span.active {
+            color: var(--primary);
+            border-color: var(--primary);
+            background: rgba(255, 87, 34, 0.1);
+        }
+
+        /* Footer */
+        footer {
+            padding: 48px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            margin-top: 80px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .footer-links a {
+            color: var(--gray);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--light);
+        }
+
+        .copyright {
+            color: var(--gray);
+            font-size: 0.85rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Mobile */
+        /* Language switch (visible on mobile too) */
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .lang-switch {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 100px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .lang-switch a {
+            color: var(--gray);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .lang-switch a:hover {
+            color: var(--light);
+        }
+
+        .lang-switch a.active {
+            color: var(--primary);
+        }
+
+        .lang-switch .sep {
+            color: rgba(255, 255, 255, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                min-height: 70vh;
+                padding: 60px 0;
+            }
+
+            .carousel-btn {
+                display: none;
+            }
+
+            .iphone-frame {
+                width: 240px;
+                height: 520px;
+                border-radius: 36px;
+            }
+
+            .iphone-notch {
+                width: 84px;
+                height: 24px;
+                top: 8px;
+            }
+
+            .watch-frame {
+                width: 220px;
+                height: 270px;
+                border-radius: 62px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-pattern"></div>
+
+    <div class="container">
+        <header>
+            <nav>
+                <a href="index.html" class="logo"><img src="../assets/NWBW_logo.png" alt="NWBW" class="logo-img">NWBW</a>
+                <div class="nav-right">
+                    <div class="nav-links">
+                        <a href="privacy.html">Privacy Policy</a>
+                        <a href="support.html">Support</a>
+                    </div>
+                    <div class="lang-switch" aria-label="Language">
+                        <a href="../index.html" hreflang="ko" lang="ko">한국어</a>
+                        <span class="sep" aria-hidden="true">|</span>
+                        <a href="index.html" class="active" aria-current="page" lang="en">English</a>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <main>
+            <section class="hero">
+                <div class="hero-badge">⌚ Apple Watch trail-running navigation, built by an ultra trail runner</div>
+                <h1>
+                    No Way<br>
+                    <span>But Way</span>
+                </h1>
+                <p>Run unfamiliar mountain paths and tangled trails without worry.<br>NWBW is a trail-running app that turns your GPX files<br>into real-time navigation on Apple Watch.</p>
+                <div class="cta-group">
+                    <a href="https://apps.apple.com/us/app/nwbw/id6758130832" class="btn btn-primary">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                        </svg>
+                        App Store
+                    </a>
+                    <a href="#features" class="btn btn-secondary">Explore Features</a>
+                </div>
+            </section>
+
+            <section class="screenshots" id="screenshots">
+                <h2>App Preview</h2>
+                <p>Take a look at NWBW's key screens</p>
+                <div class="device-label">
+                    <span class="active" data-target="iphone-carousel">iPhone</span>
+                    <span data-target="watch-carousel">Apple Watch</span>
+                </div>
+
+                <!-- iPhone Carousel -->
+                <div class="carousel" id="iphone-carousel" data-carousel>
+                    <div class="carousel-wrapper">
+                        <button class="carousel-btn" data-prev aria-label="Previous screenshot">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                        </button>
+                        <div class="iphone-frame">
+                            <div class="iphone-notch"></div>
+                            <div class="carousel-track" data-track>
+                                <div class="carousel-slide"><img src="../assets/스크린샷_1.png" alt="NWBW app splash screen" draggable="false"></div>
+                                <div class="carousel-slide"><img src="../assets/아이폰_코스목록.png" alt="Courses - weekly summary and route thumbnails" draggable="false"></div>
+                                <div class="carousel-slide"><img src="../assets/아이폰_코스상세.png" alt="Course details - satellite map and elevation profile" draggable="false"></div>
+                                <div class="carousel-slide"><img src="../assets/아이폰_라이브트래킹.png" alt="Live Tracking - real-time location and workout metrics" draggable="false"></div>
+                                <div class="carousel-slide"><img src="../assets/아이폰_러닝기록.png" alt="Records - total distance and monthly runs" draggable="false"></div>
+                                <div class="carousel-slide"><img src="../assets/스크린샷_3.jpg" alt="Importing a GPX file" draggable="false"></div>
+                                <div class="carousel-slide"><img src="../assets/아이폰_설정.png" alt="Settings - GPS Mode and heart rate zones" draggable="false"></div>
+                                <div class="carousel-slide"><img src="../assets/스크린샷_9.PNG" alt="Apple Health integration" draggable="false"></div>
+                                <div class="carousel-slide"><img src="../assets/스크린샷_10.PNG" alt="Strava integration" draggable="false"></div>
+                            </div>
+                        </div>
+                        <button class="carousel-btn" data-next aria-label="Next screenshot">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                        </button>
+                    </div>
+                    <div class="carousel-dots" data-dots></div>
+                    <div class="carousel-counter" data-counter></div>
+                </div>
+
+                <!-- Apple Watch Carousel -->
+                <div class="carousel" id="watch-carousel" data-carousel style="display:none;">
+                    <div class="carousel-wrapper">
+                        <button class="carousel-btn" data-prev aria-label="Previous screenshot">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                        </button>
+                        <div class="watch-frame">
+                            <div class="carousel-track" data-track>
+                                <div class="carousel-slide"><img src="../assets/워치_트랙목록.png" alt="Watch course list - Free Run and course cards" draggable="false"></div>
+                                <div class="carousel-slide"><img src="../assets/워치_러닝시작.png" alt="Start Run - elevation profile and course summary" draggable="false"></div>
+                                <div class="carousel-slide"><img src="../assets/워치_네비게이션.png" alt="Navigation - turn guidance and progress" draggable="false"></div>
+                                <div class="carousel-slide"><img src="../assets/워치_3.PNG" alt="Off-course warning" draggable="false"></div>
+                                <div class="carousel-slide"><img src="../assets/워치_10.PNG" alt="Live map" draggable="false"></div>
+                                <div class="carousel-slide"><img src="../assets/워치_고도프로필.png" alt="Elevation - current elevation and gain left" draggable="false"></div>
+                                <div class="carousel-slide"><img src="../assets/워치_운동지표.png" alt="Stats - large metrics and heart rate zone gauge" draggable="false"></div>
+                                <div class="carousel-slide"><img src="../assets/워치_8.jpg" alt="Off-course alert" draggable="false"></div>
+                            </div>
+                        </div>
+                        <button class="carousel-btn" data-next aria-label="Next screenshot">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                        </button>
+                    </div>
+                    <div class="carousel-dots" data-dots></div>
+                    <div class="carousel-counter" data-counter></div>
+                </div>
+            </section>
+
+            <section class="features" id="features">
+                <div class="features-grid">
+                    <!-- Real-time direction guidance -->
+                    <div class="feature-card">
+                        <div class="feature-icon">🧭</div>
+                        <h3>Real-Time Direction Guidance</h3>
+                        <p>See the distance and direction to your next turn at a glance. A compass arrow shows exactly which way to go, and an instant alert when you leave the route helps you get back on track fast.</p>
+                    </div>
+
+                    <!-- GPX course support -->
+                    <div class="feature-card">
+                        <div class="feature-icon">📂</div>
+                        <h3>GPX Course Support</h3>
+                        <p>Import GPX files on iPhone and sync them to your Watch. Follow popular trail routes and race courses exactly as mapped, and check the elevation profile to see the climbs and descents ahead. Export your run as GPX when you're done!</p>
+                    </div>
+
+                    <!-- Complete workout tracking -->
+                    <div class="feature-card">
+                        <div class="feature-icon">❤️</div>
+                        <h3>Complete Workout Tracking</h3>
+                        <p>Monitor heart rate, distance, pace, and calories in real time. Color-coded heart rate zones (Z1–Z5) show your effort at a glance. Automatic 1 km laps, plus manual laps with the Apple Watch Ultra Action Button. Accurate total elevation gain with sensor noise filtered out. Workouts are saved to Apple Health automatically.</p>
+                    </div>
+
+                    <!-- Optimized for Apple Watch -->
+                    <div class="feature-card">
+                        <div class="feature-icon">⌚</div>
+                        <h3>Built for Apple Watch</h3>
+                        <p>Runs standalone - no iPhone needed, just your Watch. Battery-efficient design for long-distance runs. Companion Mode saves even more battery when you run with your iPhone.</p>
+                    </div>
+
+                    <!-- Six run screens -->
+                    <div class="feature-card">
+                        <div class="feature-icon">📱</div>
+                        <h3>Six Run Screens</h3>
+                        <p>1. Navigation - direction compass and distance to the next point<br>
+                        2. Map - live location, route, and checkpoints<br>
+                        3. Elevation - your position on the full-course elevation graph, gain so far / left / total, and current and max elevation<br>
+                        4. Stats - big, Workout-app-style metrics on a single screen with a heart rate zone gauge<br>
+                        5. Laps - lap-by-lap times recorded with the Action Button<br>
+                        6. Controls - pause, Backtrack, and end</p>
+                    </div>
+
+                    <!-- Strava integration -->
+                    <div class="feature-card">
+                        <div class="feature-icon">🔥</div>
+                        <h3>Strava Integration</h3>
+                        <p>Upload finished runs straight to Strava. Your route, elevation, actual GPS timestamps, and heart rate data are sent in GPX format, so you can even see your heart rate graph on Strava. Connect once and your sign-in token renews automatically.</p>
+                    </div>
+
+                    <!-- Climb guidance -->
+                    <div class="feature-card">
+                        <div class="feature-icon">⛰️</div>
+                        <h3>Climb Guidance</h3>
+                        <p>200 m before a climb begins, a voice prompt tells you its length, average grade, and elevation gain. With real-time grade (%), vertical speed (VAM), and the gain left on the course, you'll know the hills ahead and can pace yourself.</p>
+                    </div>
+
+                    <!-- Checkpoint and aid station alerts -->
+                    <div class="feature-card">
+                        <div class="feature-icon">📍</div>
+                        <h3>Checkpoint & Aid Station Alerts</h3>
+                        <p>Waypoints in your GPX file (CPs, aid stations) are recognized automatically. They appear as markers on the map, and a voice alert lets you know 200 m before you reach each one. Just use the race course GPX as is.</p>
+                    </div>
+
+                    <!-- Safety features -->
+                    <div class="feature-card">
+                        <div class="feature-icon">🛟</div>
+                        <h3>Safety Features</h3>
+                        <p><strong>Backtrack</strong> - guides you back along the path you came so you can return safely. <strong>Sunset warning</strong> - a voice warning gives you advance notice when your estimated finish time gets close to sunset. Works without a network connection.</p>
+                    </div>
+
+                    <!-- Smart run assist -->
+                    <div class="feature-card">
+                        <div class="feature-icon">🎯</div>
+                        <h3>Smart Run Assist</h3>
+                        <p><strong>Auto-Pause</strong> - pauses recording when you stop and resumes when you start running again. <strong>Target Pace</strong> - a voice alert tells you when you fall behind your target. Voice alert intervals (by distance or time) are fully customizable.</p>
+                    </div>
+
+                    <!-- Lap times and Action Button -->
+                    <div class="feature-card">
+                        <div class="feature-icon">🏁</div>
+                        <h3>Lap Times & Action Button</h3>
+                        <p>Running the same loop several times? Press the <strong>Action Button</strong> on Apple Watch Ultra to record a lap each time around. Press it before a run to start a Free Run instantly, and review each lap's time, distance, and pace on the Laps screen and in the run details on iPhone.</p>
+                    </div>
+                    <!-- Settings sync -->
+                    <div class="feature-card">
+                        <div class="feature-icon">⚙️</div>
+                        <h3>Settings Sync</h3>
+                        <p>GPS Mode, voice alerts, Target Pace, screen order, and other settings you change on iPhone sync to your Watch automatically. Check the values currently applied and the last sync time right on the Watch's Settings screen.</p>
+                    </div>
+                    <!-- Live Tracking -->
+                    <div class="feature-card">
+                        <div class="feature-icon">📡</div>
+                        <h3>Live Tracking</h3>
+                        <p>Follow real-time location and workout data on iPhone while you run with your Watch. Open the iPhone app and the live card appears right away; if the connection drops, data is buffered and restored automatically. If a run is missing on iPhone, it's fetched again from the Watch automatically.</p>
+                    </div>
+                    <!-- English support -->
+                    <div class="feature-card">
+                        <div class="feature-icon">🌐</div>
+                        <h3>English &amp; Korean</h3>
+                        <p>Starting with version 0.3.7, the entire app is available in English. Choose System, <span lang="ko">한국어</span>, or English in the app's Settings → General → Language, and your Watch follows your iPhone's setting.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Closing section -->
+            <section class="closing" style="text-align: center; padding: 80px 0;">
+                <p style="font-size: 1.5rem; color: var(--light); margin-bottom: 24px;">
+                    No more worrying about getting lost on the trail.<br>
+                    <strong style="color: var(--primary);">Run with confidence with NWBW.</strong>
+                </p>
+                <p style="font-size: 1.1rem; color: var(--gray); margin-bottom: 16px;">
+                    <strong>No Way But Way</strong><br>
+                    They say there's no path, but there is a path.<br>
+                    They say there's no way, but there is a way!
+                </p>
+            </section>
+
+            <!-- Bible verse -->
+            <section class="verse" style="text-align: center; padding: 40px 0; border-top: 1px solid rgba(255, 255, 255, 0.06);">
+                <p style="font-size: 1rem; color: var(--gray); font-style: italic; max-width: 700px; margin: 0 auto; line-height: 1.8;">
+                    "See, I am doing a new thing! Now it springs up; do you not perceive it?<br>
+                    I am making a way in the wilderness and streams in the wasteland."<br>
+                    <span style="color: var(--primary);">— Isaiah 43:19</span>
+                </p>
+            </section>
+
+            <section class="how-it-works">
+                <h2 style="text-align: center; font-size: 2rem; margin-bottom: 48px;">How It Works</h2>
+                <div class="features-grid">
+                    <div class="feature-card" style="text-align: center;">
+                        <div class="feature-icon" style="margin: 0 auto 20px;">1️⃣</div>
+                        <h3>Import a GPX</h3>
+                        <p>Open a GPX file on your iPhone and import it into the app.</p>
+                    </div>
+                    <div class="feature-card" style="text-align: center;">
+                        <div class="feature-icon" style="margin: 0 auto 20px;">2️⃣</div>
+                        <h3>Sync to Your Watch</h3>
+                        <p>Choose a course and send it to your Apple Watch.</p>
+                    </div>
+                    <div class="feature-card" style="text-align: center;">
+                        <div class="feature-icon" style="margin: 0 auto 20px;">3️⃣</div>
+                        <h3>Start Your Run</h3>
+                        <p>Pick the course on your Watch and start running!</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="footer-content">
+                <div class="copyright">© 2026 NWBW. All rights reserved.</div>
+                <div class="footer-links">
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="support.html">Support</a>
+                    <a href="mailto:info@codestove.io">Contact</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="../carousel.js"></script>
+</body>
+</html>

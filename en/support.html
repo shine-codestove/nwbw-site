@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support - NWBW</title>
+    <link rel="icon" type="image/png" href="../assets/NWBW_logo.png">
+    <link rel="apple-touch-icon" href="../assets/NWBW_logo.png">
+    <link rel="alternate" hreflang="ko" href="https://shine-codestove.github.io/nwbw-site/support.html">
+    <link rel="alternate" hreflang="en" href="https://shine-codestove.github.io/nwbw-site/en/support.html">
+    <link rel="alternate" hreflang="x-default" href="https://shine-codestove.github.io/nwbw-site/support.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FF5722;
+            --primary-dark: #E64A19;
+            --dark: #1A1A1A;
+            --darker: #0D0D0D;
+            --light: #FAFAFA;
+            --gray: #888888;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--darker);
+            color: var(--light);
+            min-height: 100vh;
+            line-height: 1.7;
+        }
+
+        .bg-pattern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(255, 87, 34, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 87, 34, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        header {
+            padding: 24px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            margin-bottom: 48px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .logo-img {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+        }
+
+        .nav-links a {
+            color: var(--gray);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--light);
+        }
+
+        .content {
+            padding-bottom: 80px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+        }
+
+        .subtitle {
+            color: var(--gray);
+            font-size: 1.1rem;
+            margin-bottom: 48px;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-top: 48px;
+            margin-bottom: 24px;
+            color: var(--primary);
+        }
+
+        p {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 16px;
+        }
+
+        /* Contact Card */
+        .contact-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 20px;
+            padding: 32px;
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .contact-icon {
+            width: 64px;
+            height: 64px;
+            background: rgba(255, 87, 34, 0.15);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 2rem;
+        }
+
+        .contact-card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .contact-card p {
+            margin-bottom: 20px;
+        }
+
+        .contact-card a.email {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .contact-card a.email:hover {
+            text-decoration: underline;
+        }
+
+        /* FAQ */
+        .faq-item {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .faq-item h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--light);
+        }
+
+        .faq-item p {
+            margin-bottom: 0;
+            font-size: 0.95rem;
+        }
+
+        /* Tips */
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        .tip-card {
+            background: rgba(255, 87, 34, 0.1);
+            border: 1px solid rgba(255, 87, 34, 0.2);
+            border-radius: 16px;
+            padding: 20px;
+        }
+
+        .tip-card h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .tip-card p {
+            font-size: 0.9rem;
+            margin-bottom: 0;
+        }
+
+        footer {
+            padding: 32px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+            justify-content: center;
+            margin-bottom: 16px;
+        }
+
+        .footer-links a {
+            color: var(--gray);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--light);
+        }
+
+        .copyright {
+            color: var(--gray);
+            font-size: 0.85rem;
+        }
+
+        /* Language switch (visible on mobile too) */
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .lang-switch {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 100px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .lang-switch a {
+            color: var(--gray);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .lang-switch a:hover {
+            color: var(--light);
+        }
+
+        .lang-switch a.active {
+            color: var(--primary);
+        }
+
+        .lang-switch .sep {
+            color: rgba(255, 255, 255, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-pattern"></div>
+
+    <div class="container">
+        <header>
+            <nav>
+                <a href="index.html" class="logo"><img src="../assets/NWBW_logo.png" alt="NWBW" class="logo-img">NWBW</a>
+                <div class="nav-right">
+                    <div class="nav-links">
+                        <a href="index.html">Home</a>
+                        <a href="privacy.html">Privacy Policy</a>
+                    </div>
+                    <div class="lang-switch" aria-label="Language">
+                        <a href="../support.html" hreflang="ko" lang="ko">한국어</a>
+                        <span class="sep" aria-hidden="true">|</span>
+                        <a href="support.html" class="active" aria-current="page" lang="en">English</a>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <main class="content">
+            <h1>Support</h1>
+            <p class="subtitle">Have a question about using NWBW? We're here to help.</p>
+
+            <div class="contact-card">
+                <div class="contact-icon">✉️</div>
+                <h3>Contact Us</h3>
+                <p>For bug reports, feature requests, or any other questions,<br>please email us at the address below.</p>
+                <a href="mailto:info@codestove.io" class="email">
+                    info@codestove.io
+                </a>
+            </div>
+
+            <h2>Frequently Asked Questions</h2>
+
+            <div class="faq-item">
+                <h3>How do I import a GPX file?</h3>
+                <p>Tap a GPX file on your iPhone and an "Open in NWBW" option appears. You can open GPX files from the Files app, email, web downloads, and more. Imported courses show up in the iPhone app, where you can sync them to your Apple Watch.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>How do I choose a course on Apple Watch?</h3>
+                <p>First, sync the course from your iPhone to your Watch. Then open the NWBW app on your Apple Watch to see the list of synced courses. Choose the course you want and tap "Start Run."</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>How will I know if I go off course?</h3>
+                <p>If you stray more than 5 m from the course, your Watch shows a warning along with haptic feedback. The Navigation screen then guides you back toward the route.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Can I run with just my Watch?</h3>
+                <p>Yes. Once a course is synced, you can run and navigate with your Apple Watch alone, without your iPhone. GPS, heart rate, distance, and all other data are recorded on the Watch.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>What is Companion Mode?</h3>
+                <p>When you run with your iPhone, this mode uses the iPhone's GPS to save your Watch's battery. The iPhone handles GPS tracking and navigation calculations, while the Watch focuses on displaying your workout data.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Why does the app need location permission?</h3>
+                <p>GPS location is needed to record your running route and provide navigation. Choosing "Always Allow" keeps recording accurate even while the screen is off. Location data is stored only on your devices and is never sent anywhere else.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Why does the app need Health (HealthKit) permission?</h3>
+                <p>Heart rate, distance, and calorie measurements and workout saving all go through the Apple Health app, so recording a run requires Health permission. <strong>You only need to approve it once; you won't be asked again.</strong> If you denied permission, you'll see a notice when you start a run, and you can change it at any time on your Watch under Settings → Privacy &amp; Security → Health.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>I approved Health permission, but I keep getting prompted</h3>
+                <p>This was a known issue in earlier versions and has been fixed in the latest version. Please update NWBW to the latest version on the App Store. After updating, the app quietly checks permissions you've already granted and won't ask again.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>How does climb guidance work?</h3>
+                <p>When you start a course run, the app analyzes the GPX elevation data to identify climbs ahead of time. About 200 m before a climb begins, a voice prompt tells you its length, average grade, and elevation gain, and the Elevation screen shows the real-time grade and the gain left.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>How do I get checkpoint (CP) and aid station alerts?</h3>
+                <p>Import a GPX file that includes waypoints (&lt;wpt&gt;) and they're recognized automatically. GPX files provided by race organizers usually include them. They appear as markers on the map, and a voice alert lets you know 200 m before you reach each one.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>When should I use Backtrack?</h3>
+                <p>If you're lost or need to turn back partway, tap "Backtrack" on the Controls screen. It guides you in reverse along the route you've run so far, so you can return safely to the start. Your workout keeps recording the whole time.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Where do I turn on Auto-Pause and Target Pace alerts?</h3>
+                <p>You can turn them on in the iPhone app under Settings &gt; Run Assist. Auto-Pause stops recording automatically when you stop and resumes when you start moving again, and Target Pace alerts you by voice when you're running more than 20% slower than the pace you set. Settings sync to your Watch automatically.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>How much battery does it use?</h3>
+                <p>Because GPS and the display are in constant use, it uses more battery than a typical app. On Apple Watch Ultra, you can expect about 8–10 hours of continuous use. Companion Mode can save 30–40% of your Watch's battery.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>How do I record laps with the Action Button (Apple Watch Ultra)?</h3>
+                <p>On your Watch, go to Settings → Action Button → Workout → App and select <strong>NWBW</strong>. Press the Action Button during a run to record a lap, confirmed with a haptic tap. Press it before a run to start a Free Run instantly. On watches without an Action Button, use the Mark Lap button at the bottom of the Laps screen.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>I finished a run, but it doesn't appear in the Records tab on my iPhone</h3>
+                <p>With your Watch and iPhone connected, open the iPhone app once. The Watch automatically resends any records your iPhone is missing. You can also find the same records on the Run History card in the Watch app.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Is heart rate data uploaded to Strava too?</h3>
+                <p>Yes. Starting with version 0.3.6, the Watch records your heart rate every 5 seconds and includes it in Strava uploads and shared GPX files. For runs recorded after the update, you can see your heart rate graph and average heart rate on Strava.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>Can I use the app in English?</h3>
+                <p>Yes. Starting with version 0.3.7, the entire app is available in English. In the iPhone app, go to Settings → General → Language and choose System, <span lang="ko">한국어</span>, or English. Your Watch follows the iPhone's setting and switches to the same language; if you're in the middle of a run, the change applies once the run ends. System follows your device language, and if your device language is neither Korean nor English, the app is shown in English.</p>
+            </div>
+
+            <h2>Tips</h2>
+
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <h4>📂 Finding GPX Files</h4>
+                    <p>You can download GPX files from Strava, AllTrails, and trail race websites.</p>
+                </div>
+                <div class="tip-card">
+                    <h4>🔋 Saving Battery</h4>
+                    <p>For long courses, use Companion Mode or check your Watch screen less often to make the battery last longer.</p>
+                </div>
+                <div class="tip-card">
+                    <h4>📍 GPS Accuracy</h4>
+                    <p>Wait outdoors for about 30 seconds before starting your run to let the GPS signal settle.</p>
+                </div>
+                <div class="tip-card">
+                    <h4>⌚ Checking the Screen</h4>
+                    <p>Raise your wrist and the screen turns on automatically. Tap to switch between the five views (Navigation, Map, Elevation, Stats, Controls).</p>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="mailto:info@codestove.io">Contact</a>
+            </div>
+            <div class="copyright">© 2026 NWBW. All rights reserved.</div>
+        </footer>
+    </div>
+</body>
+</html>

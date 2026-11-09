@@ -1,4 +1,6 @@
 (function () {
+  var isEnglish = (document.documentElement.lang || '').indexOf('en') === 0;
+
   // Generic carousel initializer
   function initCarousel(container) {
     var track = container.querySelector('[data-track]');
@@ -14,7 +16,7 @@
     for (var i = 0; i < total; i++) {
       var dot = document.createElement('button');
       dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
-      dot.setAttribute('aria-label', (i + 1) + '번 화면');
+      dot.setAttribute('aria-label', isEnglish ? 'Screen ' + (i + 1) : (i + 1) + '번 화면');
       dot.dataset.index = i;
       dotsContainer.appendChild(dot);
     }
