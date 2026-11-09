@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - NWBW</title>
+    <link rel="icon" type="image/png" href="../assets/NWBW_logo.png">
+    <link rel="apple-touch-icon" href="../assets/NWBW_logo.png">
+    <link rel="alternate" hreflang="ko" href="https://shine-codestove.github.io/nwbw-site/privacy.html">
+    <link rel="alternate" hreflang="en" href="https://shine-codestove.github.io/nwbw-site/en/privacy.html">
+    <link rel="alternate" hreflang="x-default" href="https://shine-codestove.github.io/nwbw-site/privacy.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FF5722;
+            --primary-dark: #E64A19;
+            --dark: #1A1A1A;
+            --darker: #0D0D0D;
+            --light: #FAFAFA;
+            --gray: #888888;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--darker);
+            color: var(--light);
+            min-height: 100vh;
+            line-height: 1.7;
+        }
+
+        .bg-pattern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(255, 87, 34, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 87, 34, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        header {
+            padding: 24px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            margin-bottom: 48px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .logo-img {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+        }
+
+        .nav-links a {
+            color: var(--gray);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--light);
+        }
+
+        .content {
+            padding-bottom: 80px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+        }
+
+        .last-updated {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 48px;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-top: 48px;
+            margin-bottom: 16px;
+            color: var(--primary);
+        }
+
+        h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-top: 24px;
+            margin-bottom: 12px;
+        }
+
+        p {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 16px;
+        }
+
+        ul {
+            margin-bottom: 16px;
+            padding-left: 24px;
+        }
+
+        li {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 8px;
+        }
+
+        .highlight-box {
+            background: rgba(255, 87, 34, 0.1);
+            border-left: 3px solid var(--primary);
+            padding: 20px 24px;
+            margin: 24px 0;
+            border-radius: 0 12px 12px 0;
+        }
+
+        .highlight-box p {
+            margin-bottom: 0;
+        }
+
+        .contact-info {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 16px;
+            padding: 24px;
+            margin-top: 32px;
+        }
+
+        .contact-info a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            padding: 32px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+            justify-content: center;
+            margin-bottom: 16px;
+        }
+
+        .footer-links a {
+            color: var(--gray);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--light);
+        }
+
+        .copyright {
+            color: var(--gray);
+            font-size: 0.85rem;
+        }
+
+        /* Language switch (visible on mobile too) */
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .lang-switch {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 100px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .lang-switch a {
+            color: var(--gray);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .lang-switch a:hover {
+            color: var(--light);
+        }
+
+        .lang-switch a.active {
+            color: var(--primary);
+        }
+
+        .lang-switch .sep {
+            color: rgba(255, 255, 255, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-pattern"></div>
+
+    <div class="container">
+        <header>
+            <nav>
+                <a href="index.html" class="logo"><img src="../assets/NWBW_logo.png" alt="NWBW" class="logo-img">NWBW</a>
+                <div class="nav-right">
+                    <div class="nav-links">
+                        <a href="index.html">Home</a>
+                        <a href="support.html">Support</a>
+                    </div>
+                    <div class="lang-switch" aria-label="Language">
+                        <a href="../privacy.html" hreflang="ko" lang="ko">한국어</a>
+                        <span class="sep" aria-hidden="true">|</span>
+                        <a href="privacy.html" class="active" aria-current="page" lang="en">English</a>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <main class="content">
+            <h1>Privacy Policy</h1>
+            <p class="last-updated">Last updated: November 2026</p>
+
+            <p>NWBW (the "App") values your privacy and complies with applicable laws and regulations, including the Personal Information Protection Act of the Republic of Korea. This Privacy Policy explains what information the App collects, how it is used, and how it is protected.</p>
+
+            <div class="highlight-box">
+                <p><strong>Summary:</strong> NWBW does not require you to create an account or sign in, and all data is stored only on your devices. We do not send data to external servers or share it with third parties, except for run records you choose to upload to Strava after connecting your account (see 7.1).</p>
+            </div>
+
+            <h2>1. Information We Collect</h2>
+
+            <h3>1.1 Location Information (iPhone and Apple Watch)</h3>
+            <p>The App collects GPS-based location information to record your running routes and provide navigation.</p>
+            <ul>
+                <li>Real-time location coordinates (latitude, longitude)</li>
+                <li>Route traveled and cumulative distance</li>
+                <li>Elevation and total elevation gain</li>
+                <li>Direction and speed of movement</li>
+            </ul>
+
+            <h3>1.2 Health and Workout Data (Apple HealthKit)</h3>
+            <p>The App integrates with Apple HealthKit and may read and write the following data.</p>
+            <ul>
+                <li>Workouts (running type, distance, duration, calories burned)</li>
+                <li>Heart rate (when using Apple Watch)</li>
+                <li>Workout routes (HKWorkoutRoute)</li>
+                <li>Running speed and pace</li>
+            </ul>
+
+            <h3>1.3 GPX File Data</h3>
+            <p>The App processes the following information from GPX files you import.</p>
+            <ul>
+                <li>Course name and route coordinates</li>
+                <li>Waypoint information</li>
+                <li>Elevation data</li>
+            </ul>
+
+            <h3>1.4 Data Synced Between Devices</h3>
+            <p>To provide features across iPhone and Apple Watch, the following data is transferred between your devices.</p>
+            <ul>
+                <li>GPX course data (iPhone → Watch)</li>
+                <li>Run records (Watch → iPhone)</li>
+                <li>When using Companion Mode: real-time location and navigation information (iPhone → Watch)</li>
+            </ul>
+
+            <h2>2. Storage and Processing of Information</h2>
+
+            <p>All collected data is <strong>stored locally on your devices only</strong>.</p>
+            <ul>
+                <li>iPhone app data: local storage on your iPhone</li>
+                <li>Watch app data: local storage on your Apple Watch</li>
+                <li>HealthKit data: Apple's encrypted health data store</li>
+            </ul>
+
+            <div class="highlight-box">
+                <p><strong>No server transmission:</strong> NWBW does not operate its own servers and does not send the data it collects to external servers for NWBW to store or analyze. The only exception is a Strava upload you request yourself (see 7.1). Syncing between devices takes place only over a direct connection through Apple's WatchConnectivity framework.</p>
+            </div>
+
+            <h2>3. Purposes of Collection</h2>
+
+            <p>Collected information is used only for the following purposes.</p>
+            <ul>
+                <li><strong>Navigation:</strong> providing real-time direction guidance along a GPX course</li>
+                <li><strong>Off-course detection:</strong> alerting you when you leave the selected course</li>
+                <li><strong>Workout recording:</strong> providing statistics such as running distance, time, pace, and elevation</li>
+                <li><strong>Health data integration:</strong> integrating with the Apple Health app through HealthKit</li>
+                <li><strong>Syncing between devices:</strong> sharing courses and records between iPhone and Apple Watch</li>
+            </ul>
+
+            <h2>4. Data Retention</h2>
+
+            <p>Data is kept on your devices until you delete it yourself or delete the App.</p>
+            <ul>
+                <li>When the App is deleted: all App data on that device is deleted</li>
+                <li>HealthKit data: managed separately in the Health app (retained even after the App is deleted)</li>
+                <li>Run records: can be deleted individually within the App</li>
+            </ul>
+
+            <h2>5. Your Rights</h2>
+
+            <p>You have the following rights.</p>
+            <ul>
+                <li><strong>Right of access:</strong> You can view all run records and courses stored in the App.</li>
+                <li><strong>Right to deletion:</strong> You can delete individual records within the App, or delete all data by deleting the App.</li>
+                <li><strong>Permission management:</strong> You can change location and HealthKit access permissions at any time in your device settings.</li>
+                <li><strong>Data portability:</strong> You can share your run records with other apps through HealthKit, export them as GPX files, or upload them to Strava.</li>
+                <li><strong>Disconnecting:</strong> You can disconnect Strava in Settings at any time. Disconnecting immediately deletes the Strava credentials stored on your device.</li>
+            </ul>
+
+            <h2>6. Permissions</h2>
+
+            <h3>6.1 Location Permission</h3>
+            <ul>
+                <li><strong>Location access while using the App:</strong> required for GPS tracking and navigation during a run</li>
+                <li><strong>Background location access:</strong> required to keep recording your run while the screen is off</li>
+            </ul>
+            <p>Where to change it: iPhone Settings > Privacy & Security > Location Services > NWBW</p>
+
+            <h3>6.2 HealthKit Permission</h3>
+            <ul>
+                <li><strong>Read health data:</strong> to view previous workouts</li>
+                <li><strong>Write health data:</strong> to save workouts and routes after a run</li>
+            </ul>
+            <p>Where to change it: iPhone Settings > Health > Data Access & Devices > NWBW</p>
+
+            <h2>7. Third-Party Services</h2>
+
+            <p>NWBW uses the following Apple frameworks, all of which are subject to Apple's privacy policy.</p>
+            <ul>
+                <li><strong>HealthKit:</strong> health and workout data management</li>
+                <li><strong>MapKit:</strong> map display (Apple Maps)</li>
+                <li><strong>CoreLocation:</strong> GPS location tracking</li>
+                <li><strong>WatchConnectivity:</strong> iPhone ↔ Watch communication</li>
+            </ul>
+            <p>NWBW does not use advertising SDKs, analytics tools, or any other third-party tracking services.</p>
+
+            <h3>7.1 Strava Integration (Optional)</h3>
+            <p>Strava integration is optional. If you don't use it, no information is sent to Strava.</p>
+            <ul>
+                <li><strong>When data is sent:</strong> Only when you connect your Strava account in Settings and tap "Upload to Strava" on a run record. Only that one record is sent. Nothing is uploaded automatically.</li>
+                <li><strong>What is sent:</strong> The run's route (GPS coordinates), elevation, start time and duration, distance, heart rate, and course name, in GPX format.</li>
+                <li><strong>Credentials:</strong> Your Strava authorization token is stored only in your device's secure storage (Keychain) and never passes through an NWBW server. It is deleted immediately when you disconnect.</li>
+                <li><strong>After upload:</strong> Data sent to Strava is handled under Strava's privacy policy. You can edit or delete uploaded activities in Strava.</li>
+            </ul>
+
+            <h2>8. Children's Privacy</h2>
+
+            <p>The App does not knowingly collect personal information from children under the age of 14. Users under the age of 14 must use the App with the consent of a parent or legal guardian.</p>
+
+            <h2>9. Changes to This Privacy Policy</h2>
+
+            <p>If this Policy changes, we will notify you on this page. Significant changes will also be included in the App's update notes. The revised Policy takes effect on the date it is posted.</p>
+
+            <h2>10. Contact Us</h2>
+
+            <p>If you have any questions about how your personal information is handled, please contact us below.</p>
+
+            <div class="contact-info">
+                <p><strong>NWBW Privacy Officer</strong></p>
+                <p>Email: <a href="mailto:info@codestove.io">info@codestove.io</a></p>
+                <p>Response time: within 3 business days</p>
+            </div>
+        </main>
+
+        <footer>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="support.html">Support</a>
+                <a href="mailto:info@codestove.io">Contact</a>
+            </div>
+            <div class="copyright">© 2026 NWBW. All rights reserved.</div>
+        </footer>
+    </div>
+</body>
+</html>

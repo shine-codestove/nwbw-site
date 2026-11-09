@@ -6,6 +6,9 @@
     <title>개인정보 처리방침 - NWBW</title>
     <link rel="icon" type="image/png" href="assets/NWBW_logo.png">
     <link rel="apple-touch-icon" href="assets/NWBW_logo.png">
+    <link rel="alternate" hreflang="ko" href="https://shine-codestove.github.io/nwbw-site/privacy.html">
+    <link rel="alternate" hreflang="en" href="https://shine-codestove.github.io/nwbw-site/en/privacy.html">
+    <link rel="alternate" hreflang="x-default" href="https://shine-codestove.github.io/nwbw-site/privacy.html">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
@@ -205,6 +208,43 @@
             font-size: 0.85rem;
         }
 
+        /* Language switch (visible on mobile too) */
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .lang-switch {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 100px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .lang-switch a {
+            color: var(--gray);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .lang-switch a:hover {
+            color: var(--light);
+        }
+
+        .lang-switch a.active {
+            color: var(--primary);
+        }
+
+        .lang-switch .sep {
+            color: rgba(255, 255, 255, 0.2);
+        }
+
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -227,21 +267,28 @@
         <header>
             <nav>
                 <a href="index.html" class="logo"><img src="assets/NWBW_logo.png" alt="NWBW" class="logo-img">NWBW</a>
-                <div class="nav-links">
-                    <a href="index.html">홈</a>
-                    <a href="support.html">지원</a>
+                <div class="nav-right">
+                    <div class="nav-links">
+                        <a href="index.html">홈</a>
+                        <a href="support.html">지원</a>
+                    </div>
+                    <div class="lang-switch" aria-label="언어 선택">
+                        <a href="privacy.html" class="active" aria-current="page" lang="ko">한국어</a>
+                        <span class="sep" aria-hidden="true">|</span>
+                        <a href="en/privacy.html" hreflang="en" lang="en">English</a>
+                    </div>
                 </div>
             </nav>
         </header>
 
         <main class="content">
             <h1>개인정보 처리방침</h1>
-            <p class="last-updated">최종 업데이트: 2026년 1월</p>
+            <p class="last-updated">최종 업데이트: 2026년 11월</p>
 
             <p>NWBW(이하 "앱")는 사용자의 개인정보를 소중히 여기며, 개인정보 보호법 등 관련 법령을 준수합니다. 본 개인정보 처리방침은 앱이 어떤 정보를 수집하고, 어떻게 사용하며, 어떻게 보호하는지 설명합니다.</p>
 
             <div class="highlight-box">
-                <p><strong>핵심 요약:</strong> NWBW는 계정 생성이나 로그인을 요구하지 않으며, 모든 데이터는 사용자 기기에만 저장됩니다. 외부 서버로 데이터를 전송하거나 제3자와 공유하지 않습니다.</p>
+                <p><strong>핵심 요약:</strong> NWBW는 계정 생성이나 로그인을 요구하지 않으며, 모든 데이터는 사용자 기기에만 저장됩니다. 외부 서버로 데이터를 전송하거나 제3자와 공유하지 않습니다. 단, 사용자가 Strava를 연결하고 직접 업로드를 요청한 러닝 기록만 Strava로 전송됩니다(7.1 참고).</p>
             </div>
 
             <h2>1. 수집하는 정보</h2>
@@ -290,7 +337,7 @@
             </ul>
 
             <div class="highlight-box">
-                <p><strong>서버 전송 없음:</strong> NWBW는 자체 서버를 운영하지 않으며, 어떠한 데이터도 외부 서버로 전송하지 않습니다. 기기 간 동기화는 Apple의 WatchConnectivity 프레임워크를 통해 직접 연결로만 이루어집니다.</p>
+                <p><strong>서버 전송 없음:</strong> NWBW는 자체 서버를 운영하지 않으며, 수집한 데이터를 NWBW가 보관하거나 분석하기 위해 외부 서버로 전송하지 않습니다. 사용자가 직접 요청한 Strava 업로드는 예외입니다(7.1 참고). 기기 간 동기화는 Apple의 WatchConnectivity 프레임워크를 통해 직접 연결로만 이루어집니다.</p>
             </div>
 
             <h2>3. 정보 수집 목적</h2>
@@ -320,7 +367,8 @@
                 <li><strong>접근권:</strong> 앱 내에서 저장된 모든 러닝 기록과 코스를 확인할 수 있습니다.</li>
                 <li><strong>삭제권:</strong> 앱 내에서 개별 기록을 삭제하거나, 앱 삭제를 통해 모든 데이터를 삭제할 수 있습니다.</li>
                 <li><strong>권한 관리:</strong> 기기 설정에서 위치 정보 및 HealthKit 접근 권한을 언제든지 변경할 수 있습니다.</li>
-                <li><strong>데이터 이동:</strong> 러닝 기록은 HealthKit을 통해 다른 앱과 공유할 수 있습니다.</li>
+                <li><strong>데이터 이동:</strong> 러닝 기록은 HealthKit을 통해 다른 앱과 공유할 수 있으며, GPX 파일로 내보내거나 Strava에 업로드할 수 있습니다.</li>
+                <li><strong>연동 해제:</strong> 설정에서 언제든지 Strava 연결을 해제할 수 있으며, 해제하면 기기에 저장된 Strava 인증 정보가 즉시 삭제됩니다.</li>
             </ul>
 
             <h2>6. 권한 설명</h2>
@@ -349,6 +397,15 @@
                 <li><strong>WatchConnectivity:</strong> iPhone ↔ Watch 통신</li>
             </ul>
             <p>NWBW는 광고 SDK, 분석 도구, 또는 기타 제3자 추적 서비스를 사용하지 않습니다.</p>
+
+            <h3>7.1 Strava 연동 (선택)</h3>
+            <p>Strava 연동은 선택 기능이며, 사용하지 않으면 Strava로 어떠한 정보도 전송되지 않습니다.</p>
+            <ul>
+                <li><strong>전송 시점:</strong> 사용자가 설정에서 Strava 계정을 연결하고, 러닝 기록 화면에서 'Strava에 업로드'를 직접 누른 경우에만 해당 기록 하나를 전송합니다. 자동 전송은 하지 않습니다.</li>
+                <li><strong>전송 항목:</strong> 해당 러닝의 경로(GPS 좌표), 고도, 시작 시각과 소요 시간, 거리, 심박수, 코스 이름을 GPX 형식으로 전송합니다.</li>
+                <li><strong>인증 정보:</strong> Strava 인증 토큰은 기기의 보안 저장소(Keychain)에만 저장되며, NWBW 서버를 거치지 않습니다. 연결을 해제하면 즉시 삭제됩니다.</li>
+                <li><strong>전송 이후:</strong> Strava로 전송된 데이터는 Strava의 개인정보 처리방침에 따라 처리됩니다. 업로드한 활동의 수정·삭제는 Strava에서 할 수 있습니다.</li>
+            </ul>
 
             <h2>8. 아동의 개인정보</h2>
 
