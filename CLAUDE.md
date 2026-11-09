@@ -19,7 +19,8 @@ GitHub Pages로 배포되는 정적 HTML/CSS 사이트.
 ├── privacy.html        # 개인정보 처리방침 - 한국어
 ├── support.html        # 고객 지원 및 FAQ - 한국어
 ├── carousel.js         # 스크린샷 캐러셀 (한/영 공용, <html lang>으로 aria-label 언어 결정)
-├── assets/             # 로고·스크린샷 (한/영 공용)
+├── assets/             # 로고·스크린샷 (한국어 스크린샷, 언어 무관 이미지)
+│   └── en/             # 영어 앱 화면 스크린샷 (en/index.html 전용)
 └── en/                 # 영어 페이지 (한국어 페이지와 1:1 대응)
     ├── index.html
     ├── privacy.html
@@ -66,7 +67,7 @@ GitHub Pages로 배포되는 정적 HTML/CSS 사이트.
 - **hreflang**: 6개 페이지 모두 `<link rel="alternate" hreflang="ko|en|x-default">`를 절대 URL
   (`https://shine-codestove.github.io/nwbw-site/...`)로 가진다. x-default는 한국어 페이지. 새 페이지 추가 시 함께 넣는다.
 - **App Store 링크**: 한국어 페이지는 `apps.apple.com/kr/...`, 영어 페이지는 `https://apps.apple.com/us/app/nwbw/id6758130832`.
-- **스크린샷**: 현재 영어 페이지도 `../assets/`의 한국어 스크린샷을 사용 중. 영어 스크린샷이 준비되면 `en/index.html`의 `src`만 교체한다.
+- **스크린샷**: 영어 페이지는 `../assets/en/`의 영어 앱 화면을 쓴다(iPhone 1320×2868, 워치 422×514, 시뮬레이터 데모 데이터로 캡처). 한국어 시스템 화면(파일 앱 GPX 가져오기, 건강 권한)과 중복 경로 이탈 알림은 영어 페이지에서 뺐다. 스플래시(`스크린샷_1.png`), Strava 인증(`스크린샷_10.PNG`), 워치 지도(`워치_10.PNG`)는 언어 무관이라 공용으로 쓴다. 원본은 앱 저장소 `appstore-screenshots/en/`.
 - **개인정보 처리방침**: 법적 문서이므로 한국어 원문을 바꾸면 영어 번역도 빠짐없이 같은 내용으로 갱신한다.
 
 ## 작업 시 유의사항
