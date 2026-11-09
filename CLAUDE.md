@@ -7,7 +7,7 @@ GitHub Pages로 배포되는 정적 HTML/CSS 사이트.
 
 ## 기술 스택
 
-- **HTML5 + CSS3** (순수 정적 사이트, 스크린샷 캐러셀용 `carousel.js`만 사용)
+- **HTML5 + CSS3** (순수 정적 사이트, 스크린샷 캐러셀 `carousel.js`, 모션 그래픽 `motion.js`/`motion.css`)
 - **Google Fonts**: Outfit (300, 400, 600, 700, 800)
 - **빌드 도구 없음**: 패키지 매니저, 번들러, CI/CD 파이프라인 없음
 - **배포**: GitHub Pages (정적 파일 직접 서빙)
@@ -19,6 +19,8 @@ GitHub Pages로 배포되는 정적 HTML/CSS 사이트.
 ├── privacy.html        # 개인정보 처리방침 - 한국어
 ├── support.html        # 고객 지원 및 FAQ - 한국어
 ├── carousel.js         # 스크린샷 캐러셀 (한/영 공용, <html lang>으로 aria-label 언어 결정)
+├── motion.css          # 모션 그래픽 스타일 (index 한/영 공용)
+├── motion.js           # 모션 그래픽 동작 (index 한/영 공용)
 ├── assets/             # 로고·스크린샷 (한국어 스크린샷, 언어 무관 이미지)
 │   └── en/             # 영어 앱 화면 스크린샷 (en/index.html 전용)
 └── en/                 # 영어 페이지 (한국어 페이지와 1:1 대응)
@@ -39,6 +41,18 @@ GitHub Pages로 배포되는 정적 HTML/CSS 사이트.
 --light: #FAFAFA         /* 텍스트 */
 --gray: #888888          /* 보조 텍스트 */
 ```
+
+### 모션 그래픽 (index 전용, 2026-11)
+
+- **히어로 장면** `.hero-scene`: 등고선(천천히 회전), 일출 빛, 산 능선 3겹(스크롤 패럴랙스, `--depth`), 안개, 정상까지
+  저절로 그려지는 트레일 + 반복해서 오르는 러너, 정상 깃발, 내비 칩 3개(직진·오르막 200m 전·CP 급수).
+  히어로 아래에 풍경 자리를 `padding-bottom`으로 확보한다. 도형 좌표는 SVG path로 마크업에 들어 있다.
+- **코스 여정** `.journey`(`data-journey`): 스크롤 고정(sticky) 장면. 스크롤 진행률로 러너가 고도 프로필을 달리고,
+  `.jcard`의 `data-at`(0~1) 지점마다 카드가 바뀐다. 거리·고도·누적 상승은 프로필에서 계산(`data-total-km`).
+  카드 숫자(총 상승 1,297m, 정상 1,403m, 남은 상승 229m)는 이 계산과 맞춰 두었으니 프로필을 바꾸면 같이 고친다.
+- **등장 효과**: 기능 카드·사용 방법·마무리 섹션에 JS가 `.reveal` 클래스를 붙여 페이드업.
+- `prefers-reduced-motion`이면 모든 움직임을 끄고 최종 상태(여정 카드 전체 목록)로 보여준다.
+- 한/영 마크업은 같은 구조. 문구만 다르니 한쪽을 고치면 다른 쪽도 같이 고친다.
 
 ### 레이아웃
 
@@ -61,7 +75,7 @@ GitHub Pages로 배포되는 정적 HTML/CSS 사이트.
 - **영어 용어**: 앱의 영어 UI 표기를 따른다 (Courses, Records, Settings, Free Run, Navigation, Map, Elevation, Stats, Laps,
   Controls, Backtrack, Sunset warning, Auto-Pause, Target Pace, Companion Mode, Live Tracking, Mark Lap, Run Assist,
   GPS Mode: High Accuracy / Balanced / Battery Saver, Apple Health).
-- **경로**: `en/` 페이지는 `../assets/...`, `../carousel.js`를 쓰고, 영어 페이지끼리는 같은 폴더 상대 경로(`privacy.html`)로 연결한다.
+- **경로**: `en/` 페이지는 `../assets/...`, `../carousel.js`, `../motion.css`, `../motion.js`를 쓰고, 영어 페이지끼리는 같은 폴더 상대 경로(`privacy.html`)로 연결한다.
 - **언어 전환**: 모든 페이지 헤더의 `.lang-switch`("한국어 | English")가 상대 언어의 같은 페이지로 연결된다.
   `.nav-links`는 768px 이하에서 숨겨지므로 `.lang-switch`는 `.nav-links` 밖(`.nav-right` 안)에 둔다.
 - **hreflang**: 6개 페이지 모두 `<link rel="alternate" hreflang="ko|en|x-default">`를 절대 URL

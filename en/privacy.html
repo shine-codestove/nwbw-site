@@ -283,12 +283,12 @@
 
         <main class="content">
             <h1>Privacy Policy</h1>
-            <p class="last-updated">Last updated: January 2026</p>
+            <p class="last-updated">Last updated: November 2026</p>
 
             <p>NWBW (the "App") values your privacy and complies with applicable laws and regulations, including the Personal Information Protection Act of the Republic of Korea. This Privacy Policy explains what information the App collects, how it is used, and how it is protected.</p>
 
             <div class="highlight-box">
-                <p><strong>Summary:</strong> NWBW does not require you to create an account or sign in, and all data is stored only on your devices. We do not send data to external servers or share it with third parties.</p>
+                <p><strong>Summary:</strong> NWBW does not require you to create an account or sign in, and all data is stored only on your devices. We do not send data to external servers or share it with third parties, except for run records you choose to upload to Strava after connecting your account (see 7.1).</p>
             </div>
 
             <h2>1. Information We Collect</h2>
@@ -337,7 +337,7 @@
             </ul>
 
             <div class="highlight-box">
-                <p><strong>No server transmission:</strong> NWBW does not operate its own servers and does not send any data to external servers. Syncing between devices takes place only over a direct connection through Apple's WatchConnectivity framework.</p>
+                <p><strong>No server transmission:</strong> NWBW does not operate its own servers and does not send the data it collects to external servers for NWBW to store or analyze. The only exception is a Strava upload you request yourself (see 7.1). Syncing between devices takes place only over a direct connection through Apple's WatchConnectivity framework.</p>
             </div>
 
             <h2>3. Purposes of Collection</h2>
@@ -367,7 +367,8 @@
                 <li><strong>Right of access:</strong> You can view all run records and courses stored in the App.</li>
                 <li><strong>Right to deletion:</strong> You can delete individual records within the App, or delete all data by deleting the App.</li>
                 <li><strong>Permission management:</strong> You can change location and HealthKit access permissions at any time in your device settings.</li>
-                <li><strong>Data portability:</strong> You can share your run records with other apps through HealthKit.</li>
+                <li><strong>Data portability:</strong> You can share your run records with other apps through HealthKit, export them as GPX files, or upload them to Strava.</li>
+                <li><strong>Disconnecting:</strong> You can disconnect Strava in Settings at any time. Disconnecting immediately deletes the Strava credentials stored on your device.</li>
             </ul>
 
             <h2>6. Permissions</h2>
@@ -396,6 +397,15 @@
                 <li><strong>WatchConnectivity:</strong> iPhone ↔ Watch communication</li>
             </ul>
             <p>NWBW does not use advertising SDKs, analytics tools, or any other third-party tracking services.</p>
+
+            <h3>7.1 Strava Integration (Optional)</h3>
+            <p>Strava integration is optional. If you don't use it, no information is sent to Strava.</p>
+            <ul>
+                <li><strong>When data is sent:</strong> Only when you connect your Strava account in Settings and tap "Upload to Strava" on a run record. Only that one record is sent. Nothing is uploaded automatically.</li>
+                <li><strong>What is sent:</strong> The run's route (GPS coordinates), elevation, start time and duration, distance, heart rate, and course name, in GPX format.</li>
+                <li><strong>Credentials:</strong> Your Strava authorization token is stored only in your device's secure storage (Keychain) and never passes through an NWBW server. It is deleted immediately when you disconnect.</li>
+                <li><strong>After upload:</strong> Data sent to Strava is handled under Strava's privacy policy. You can edit or delete uploaded activities in Strava.</li>
+            </ul>
 
             <h2>8. Children's Privacy</h2>
 
