@@ -664,11 +664,11 @@
                         </div>
                     </article>
                     <article class="jcard" data-at="0.34" data-label="CP">
-                        <div class="hud"><span class="tag" style="color:#64B5F6">CP2</span><span class="big">1.8 km</span><span class="sub">Aid station</span></div>
+                        <div class="hud"><span class="tag" style="color:#64B5F6">CP2</span><span class="big">4.0 km</span><span class="sub">58 min to cutoff</span></div>
                         <div>
                             <div class="kicker">Checkpoint</div>
-                            <h3>Checkpoints & Aid Stations</h3>
-                            <p>Waypoints in your GPX (checkpoints, aid stations) are picked up automatically, shown on the map, and announced 200 m ahead.</p>
+                            <h3>Race Checkpoints & Cutoffs</h3>
+                            <p>Add your race CPs and cutoffs to see distance and climb to the next CP, estimated arrival, and time to cutoff, with voice alerts 500 m ahead and as you pass. GPX waypoints are picked up as CPs automatically.</p>
                         </div>
                     </article>
                     <article class="jcard" data-at="0.5" data-label="Summit">
@@ -749,6 +749,8 @@
                         </button>
                         <div class="watch-frame">
                             <div class="carousel-track" data-track>
+                                <div class="carousel-slide"><img src="../assets/en/watch_sections.png" alt="Sections - distance and climb left in the current climb" draggable="false"></div>
+                                <div class="carousel-slide"><img src="../assets/en/watch_checkpoints.png" alt="Checkpoints - distance to the next CP, estimated arrival, and time to cutoff" draggable="false"></div>
                                 <div class="carousel-slide"><img src="../assets/en/watch_courses.png" alt="Watch course list - Free Run and course cards" draggable="false"></div>
                                 <div class="carousel-slide"><img src="../assets/en/watch_start_run.png" alt="Start Run - elevation profile and course summary" draggable="false"></div>
                                 <div class="carousel-slide"><img src="../assets/en/watch_navigation.png" alt="Navigation - turn guidance and progress" draggable="false"></div>
@@ -801,8 +803,10 @@
                     <!-- Six run screens -->
                     <div class="feature-card">
                         <div class="feature-icon">📱</div>
-                        <h3>Six Run Screens</h3>
-                        <p>1. Navigation - direction compass and distance to the next point<br>
+                        <h3>Eight Run Screens</h3>
+                        <p>Sections - distance, climb, and grade left in each climb, descent, and flat<br>
+                        Checkpoints - distance to the next CP, estimated arrival, and time to cutoff<br>
+                        1. Navigation - direction compass and distance to the next point<br>
                         2. Map - live location, route, and checkpoints<br>
                         3. Elevation - your position on the full-course elevation graph, gain so far / left / total, and current and max elevation<br>
                         4. Stats - big, Workout-app-style metrics on a single screen with a heart rate zone gauge<br>
@@ -827,8 +831,36 @@
                     <!-- Checkpoint and aid station alerts -->
                     <div class="feature-card">
                         <div class="feature-icon">📍</div>
-                        <h3>Checkpoint & Aid Station Alerts</h3>
-                        <p>Waypoints in your GPX file (CPs, aid stations) are recognized automatically. They appear as markers on the map, and a voice alert lets you know 200 m before you reach each one. Just use the race course GPX as is.</p>
+                        <h3>Race Checkpoints & Cutoffs<span class="badge-new">NEW</span></h3>
+                        <p>Add CP names, distances, aid stations, and cutoffs in iPhone Course Details → Race CPs. Your Watch shows distance and climb to the next CP, estimated arrival, and time to cutoff, with voice alerts 500 m ahead and as you pass. GPX waypoints are recognized as CPs automatically.</p>
+                    </div>
+
+                    <!-- Sections -->
+                    <div class="feature-card">
+                        <div class="feature-icon">📈</div>
+                        <h3>Sections<span class="badge-new">NEW</span></h3>
+                        <p>Your course is split into climbs, descents, and flats. See distance left, climb left, average and max grade for the current section, and what comes next. A simple way to pace a race.</p>
+                    </div>
+
+                    <!-- Guidance level -->
+                    <div class="feature-card">
+                        <div class="feature-icon">🪧</div>
+                        <h3>Guidance Level<span class="badge-new">NEW</span></h3>
+                        <p>Choose Minimal for well-marked races (one alert when you go off course) or Precise for unfamiliar trails (major forks announced ahead). Settings → Running → Guidance level.</p>
+                    </div>
+
+                    <!-- Battery & fuel -->
+                    <div class="feature-card">
+                        <div class="feature-icon">🔋</div>
+                        <h3>Battery & Fuel Alerts<span class="badge-new">NEW</span></h3>
+                        <p>Get alerts at 20% and 10% battery or if it may not last to the finish, with battery saver GPS at 10%. Turn on fuel reminders to be told when it's time to eat and drink.</p>
+                    </div>
+
+                    <!-- Run recovery -->
+                    <div class="feature-card">
+                        <div class="feature-icon">💾</div>
+                        <h3>Run Recovery<span class="badge-new">NEW</span></h3>
+                        <p>Your run is saved as you go. If the app closes, reopen it and keep running, and save runs cut short by a dead battery.</p>
                     </div>
 
                     <!-- Safety features -->
